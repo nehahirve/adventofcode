@@ -5,11 +5,11 @@ const input = fs
   .toString()
   .trim()
   .split('\n')
-  .map(row => row.split(': '))
-  .map(row => [row[0].split(' '), row[1]].flat())
-  .map(row => [row[0].split('-'), row[1], row[2]].flat())
-
-console.log(input)
+  .map(row =>
+    [row]
+      .flatMap(row => row.split(': '))
+      .flatMap(row => row.split('-').flatMap(row => row.split(' ')))
+  )
 
 let validCounter = 0
 
@@ -21,9 +21,6 @@ input.forEach(row => {
 
   if (
     string[pos1] === letter ? string[pos2] !== letter : string[pos2] === letter
-  ) {
+  )
     validCounter++
-  }
 })
-
-console.log(validCounter)

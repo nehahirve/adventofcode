@@ -24,10 +24,8 @@ console.log(product)
 function countTrees(slope) {
   let trees = 0
   let pos = { x: 0, y: 0 }
-  for (let i = slope.y; i < map.length; i += slope.y) {
+  for (pos.y = slope.y; pos.y < map.length; pos.y += slope.y) {
     pos.x = (pos.x + slope.x) % map[0].length
-    pos.y = i
-    console.log(pos)
     if (map[pos.y][pos.x] === '#') {
       trees++
     }
