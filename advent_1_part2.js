@@ -1,5 +1,4 @@
 const fs = require('fs')
-const { start } = require('repl')
 let input = fs.readFileSync('input.txt').toString()
 input = input
   .split('\n')
